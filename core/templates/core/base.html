@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://cdn.tailwindcss.com/3.3.0"></script>
+    <title>{% block title %}shopy{% endblock %}</title>
+</head>
+<body>
+    <nav class="border-b border-gray-300 px-6">
+        <div class=" mx-auto py-2 px-6 xl:px-0 flex items-center justify-between">
+            <div class="menu-left flex items-center space-x-6">
+                <a href="/" class="py-4 text-semibold text-3xl text-blue-400">Shopy</a>
+                <ul class="flex items-center space-x-4">
+                    <a href="{% url 'core:shop' %}" class="text-semiblod">Shop</a>
+                    <a href="#" class="text-semiblod">About</a>
+                </ul>
+            </div>
+            <div class="menu-right flex space-x-4">
+                {% if request.user.is_authenticated %}
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                          
+                    </a>
+                    <a href="{% url 'core:logout' %}" class="px-6 py-3 -mt-3 text-white font-semibold bg-blue-500 rounded-xl hover:text-blue-700">Logout</a>
+
+                {% else %}
+                    <a href="{% url 'core:signup' %}" class="px-6 py-3 -mt-3  text-white font-semibold bg-blue-500 rounded-xl hover:text-blue-700">Sign up</a>
+                    <a href="{% url 'core:login' %}" class="px-6 py-3 -mt-3 text-white font-semibold bg-teal-500 rounded-xl hover:text-teal-700">Login</a>
+                {% endif %}
+                {% include 'cart/menu_cart.html' %}
+            </div>
+        </div>
+    </nav><hr>
+<main>
+   
+
+    {% block content%}
+    {% endblock%}
+</main>
+    <footer class="bg-gray-800 px-6">
+        <div class=" mx-auto py-10 px-6 xl:px-0 md:flex justify-between">
+            <div class="footer-left mb-12 md:mb-0">
+                <h1 class="mb-5 uppercase text-lg text-white ">about</h1>
+                <P class="text-gray-400">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere qui dolor id consequuntur eaque atque numquam veritatis dicta temporibus ex.</P>
+                <P class="text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, veniam. Ullam, facilis. Delectus, ab quos!</P>
+                <P class="text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, voluptatem.</P>
+
+            </div>
+            <div class="footer-right ">
+                <h1 class="mb-5 uppercase text-lg text-white">socialmedia links</h1>
+                <ul class="space-y-3">
+                    <li><a class="text-blue-500 text-semiblod hover:text-blue-700">Facabook</a></li>
+                    <li><a class="text-blue-500 text-semiblod hover:text-blue-700">Twitter</a></li>
+                    <li><a class="text-blue-500 text-semiblod hover:text-blue-700">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="http://unpkg.com/htmx.org@1.7.0"></script>
+</html>

@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ product.name}}{% endblock %}
+
+{% block content %}
+
+<div class="grid grid-cols-5 py-2 gap-6">
+    <div class="col-span-3">
+        <img src="{{ product.image.url }}" class="rounded-xl">
+    </div>
+
+    <div class="col-span-2 p-6 bg-gray-100 rounded-xl">
+        <h1 class="mb-6 text-3xl">{{ product.name }}</h1>
+        <p class="text-gray-500"><strong>price: </strong>{{ product.price }}</p>
+        <p class="text-gray-500"><strong>seller: </strong>{{ product.created_by.username }}</p>
+        {% if product.description %}
+           
+            <p class="mt-6 text-gray-700"><ul>Description: </ul>
+                {{ product.description }}
+            </p>
+
+        {% endif %}
+
+    
+        <a href="#" class="mt-6 inline-block px-8 py-4 bg-blue-500 text-white rounded-xl hover:text-blue-700"
+        hx-get="{% url 'add_to_cart' product.id %}"
+        hx-target="#menu-cart-button"
+        hx-swap="outerHTML"
+        >
+            
+            Add to cart
+        </a>
+    </div>
+</div>
+
+{% endblock %}

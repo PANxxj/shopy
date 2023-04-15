@@ -1,0 +1,75 @@
+{% extends 'core/base.html' %}
+
+{% block title %}wel{% endblock %}
+
+{% block content %}
+<div class="mx-auto flex items-start  py-6 px-6">
+    <div class="products p-6 w-3/4">
+        <h1 class="mb-5 text-3xl">Checkout</h1>
+
+        <div class="w-full pr-6">
+            <div class="mb-6 p-6 bg-gray-100 rounded-xl">
+                <h2 class="mb-5 uppercase tex-lg">shipping information</h2>
+                <div class="flex space-x-6">
+                    <div class="w-1/2 m-4">
+                        <label class="inline-block mb-2">first name</label>
+                        <input type="text" class="w-full p-5 rounded-xl">
+                    </div>
+
+                    <div class="w-1/2 m-4">
+                        <label class="inline-block mb-2">last name</label>
+                        <input type="text" class="w-full p-5 rounded-xl">
+                    </div>
+
+                </div>
+
+                    <div class="mb-4">
+                        <label class="inline-block mb-2">address</label>
+                        <input type="text" class="w-full p-5 rounded-xl">
+                    </div>
+
+                <div class="flex space-x-6">
+                        <div class="w-1/2 m-4">
+                            <label class="inline-block mb-2">Pin code</label>
+                            <input type="text" class="w-full p-5 rounded-xl">
+                        </div>
+                        
+                        <div class="w-1/2 m-4">
+                            <label class="inline-block mb-2">city/village</label>
+                            <input type="text" class="w-full p-5 rounded-xl">
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full pr-6">
+            <div class="mb-6 p-6 bg-gray-100 rounded-xl">
+                <h2 class="mb-5 uppercase tex-lg">contact information</h2>
+
+            </div>
+        </div>
+
+        <div class="w-full pr-6">
+            <div class="mb-6 p-6 bg-gray-100 rounded-xl">
+                <h2 class="mb-5 uppercase tex-lg">payment information</h2>
+            </div>
+        </div>
+
+    </div>
+
+    
+
+    <div class="summary p-6 w-1/4 bg-gray-100 rounded-xl">
+        <h1 class="font-semibold uppercase">Summary</h1>
+
+        <div class="flex p-6 justify-between">
+            <span><strong>Total</strong></span>
+
+            <span><strong>Rs.</strong></span>
+            
+        </div>
+        <a href="#" class="inline-block p-6 px-6 py-3 text-white font-semibold bg-blue-500 rounded-xl hover:bg-blue-200">proceed to pay</a>
+    </div>
+
+</div>
+{% endblock %}
