@@ -4,26 +4,12 @@
 
 {% block content %}
 <div class="mx-auto flex items-start  py-6 px-6">
-    <div class="products p-6 w-3/4">
-        <div class="product mb-6 flex pr-6">
-            <a href="#" class="w-1/4">
-                <img class="rounded-xl hover:shadow" src="1.jpg">
-            </a>
-            <div class="w-3/4 pl-6">
-                <div class="flex justify-between">
-                    <a  href="#" class="text-lg">product name</a>
-                    <span class="mb-6 text-gray-400">Rs.$$$
-                    </span>
-                </div>
-                <hr>
-                <div class="quantity mt-6 flex items-center space-x-4">
-                    <a href="#" class="p-3 bg-gray-100 font-semibold">+</a>
-                    <span>2</span>
-                    <a href="#" class="p-3 bg-gray-100 font-semibold">-</a>
-                </div>
-            </div>
-        </div>
+    <div class="products  w-3/4">
+        <h1 class="font-semibold p-6 uppercase">Products</h1>
 
+        {% for item in cart %}
+            {% include 'cart/cart_item.html' %}
+        {% endfor %}
     </div>
 
     <div class="summary p-6 w-1/4 bg-gray-100 rounded-xl">
@@ -32,7 +18,14 @@
         <div class="flex p-6 justify-between">
             <span><strong>Total</strong></span>
 
-            <span><strong>Rs.</strong></span>
+            <span 
+                hx_get="{% url 'cart:hx_cart_total' %}"
+                hx-trigger="update-menu-cart from:body"
+                hx-swap="innerHTML"
+               
+            >
+                {% include 'cart/cart_total.html' %}
+            </span>
             
         </div>
         <a href="{% url 'cart:checkout' %}" class="inline-block p-6 px-6 py-3 text-white font-semibold bg-blue-500 rounded-xl hover:bg-blue-200">Check out</a>

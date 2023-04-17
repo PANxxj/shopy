@@ -1,0 +1,84 @@
+{% extends 'core/base.html' %}
+
+{% block title %}wel{% endblock %}
+
+{% block content %}
+    <div class="mx-auto flex items-start  py-6 px-6">
+        <div class="products p-6 w-3/4">
+            <h1 class="mb-5 font-semibold text-3xl">My account</h1>
+            <p><strong>username: </strong>{{ user.username }}</p>
+            <p><Strong>Email: </Strong>{{ user.email }}</p>
+        </div>
+
+        <div class="summary p-6 w-1/4 bg-gray-100 rounded-xl">
+            <h1 class="font-semibold uppercase">Summary</h1>
+    
+            <div class="flex p-6 justify-between">
+                <span><strong>Total</strong></span>
+    
+                <span><strong>Rs.{{ cart.get_total_cost }}<strong></span>
+                
+            </div>
+            <!-- <a href="{% url 'cart:checkout' %}" class="inline-block p-6 px-6 py-3 text-white font-semibold bg-blue-500 rounded-xl hover:bg-blue-200">Check out</a> -->
+        </div>
+        <hr>
+    
+
+    </div>
+    <h1 class="font-semibold text-2xl">My orders</h1>
+    
+    <div class="w-full mb-6 p-6 flex flex-wrap bg-gray-100 rounded-xl">
+        <div class="mb-6 flex justify-between">
+            <a href="#" >Order id:1</a>
+        </div>
+            {% for item in cart %}
+                <div class="mb-6 w-full">
+                    <div class="product mb-6 flex pr-4 ">
+                        <a href="#" class="w-1/4">
+                            <img class="hover:shadow-lg rounded-xl" src="{{ item.product.image.url }}">
+                        </a>
+                    </div>
+
+                    <div class="w-3/4 pl-6" >
+                        <div class="flex justify-between">
+                            <a  href="#" class="text-lg">{{ item.product.name }}</a>
+                                
+                            <p class="mb-6 text-gray-400">Rs.{{ item.total_price }}</p>
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+            {% endfor %}
+    </div>
+{% endblock%}
+
+    <!-- <div class="product mb-6 p-6 bg-gray-100 rounded-xl">
+        {% for item in cart %}
+            <div class="flex justify-between">
+                <div class="w-3/4 pl-6 flex justify-between p-6 ">
+                    <a href="#" class="w-1/4">
+                        <img class="rounded-xl hover:shadow" src="{{ item.product.image.url }}">
+                    </a>
+            
+                
+                    <div class="flex justify-between">
+                        <a  href="#" class="text-lg">{{ item.product.name }}</a>
+                        
+                        <a class="mb-6 text-gray-400">Rs.{{ item.total_price }}
+                        </a>
+                        <hr>
+                    </div>
+                    <hr>
+                    
+                     <div class="quantity mt-6 flex items-center space-x-4">
+                        <a href="#" class="p-3 bg-gray-100 font-semibold">+</a>
+                        <span>{{ item.quantity }}</span>
+                        <a href="#" class="p-3 bg-gray-100 font-semibold">-</a>
+                    </div> -->
+                <!-- </div>
+            </div> 
+            
+        {% endfor %}
+    </div> -->

@@ -6,6 +6,7 @@ from cart.views import add_to_cart,cart
 
 urlpatterns = [
     path('',include('core.urls')),
+    path('order/',include('order.urls')),
     path('cart/',include('cart.urls')),
     path('product/',include('product.urls')),
     path('admin/', admin.site.urls),

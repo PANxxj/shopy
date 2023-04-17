@@ -27,8 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SESSION_COOKIE_AGE=864000
+SESSION_COOKIE_AGE=8640
 CART_SESSION_ID='cart'
+
 
 LOGIN_URL='/login/'
 LOGIN_REDIRECT_URL='/'
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     'core',
     'product',
     'cart',
+    'order',
 ]
 
 MIDDLEWARE = [
